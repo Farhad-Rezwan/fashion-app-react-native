@@ -13,7 +13,6 @@ const styles = StyleSheet.create({
         width,
     },
     titleContainer: {
-        backgroundColor: "green",
         height: 100,
         justifyContent: "center",
     },

@@ -1,28 +1,32 @@
 import React from "react";
 import { View, StyleSheet, Dimensions } from "react-native";
 import Slide, { SLIDE_HEIGHT } from "./Slide";
-import { useValue, onScrollEvent, interpolateColor, interpolatePath, ColorSpace } from "react-native-redash";
-import Animated, {interpolateColors} from "react-native-reanimated";
+import {
+    useValue,
+    onScrollEvent,
+    interpolateColor,
+} from "react-native-redash";
+import { ScrollView } from "react-native-gesture-handler";
 
 const { width, height } = Dimensions.get("window");
 
 const styles = StyleSheet.create({
     container: {
         flex: 1,
-        backgroundColor: "white",
+backgroundColor: "white"
     },
     slider: {
         height: SLIDE_HEIGHT,
-backgroundColor: "cyan",
         borderBottomRightRadius: 75,
+backgroundColor: "green"
     },
     footer: {
         flex: 1,
     },
     footerItem: {
         flex: 1,
-        backgroundColor: "white",
         borderTopLeftRadius: 75,
+backgroundColor: "white"
     },
 });
 const Onboarding = () => {
@@ -31,27 +35,22 @@ const Onboarding = () => {
     //
     return (
         <View style={styles.container}>
-            <Animated.View style={styles.slider}>
-                <Animated.ScrollView
+            <View style={[styles.slider]}>
+                <ScrollView
                     horizontal
                     snapToInterval={width}
                     decelerationRate="fast"
                     showsHorizontalScrollIndicator={false}
                     bounces={false}
                 >
-                    <Slide label="Relaxed" />
-                    <Slide label="Playful" right />
-                    <Slide label="Excentric" />
-                    <Slide label="Funcky" right />
-                </Animated.ScrollView>
-            </Animated.View>
+                    <Slide label="Learning" />
+                    <Slide label="React" right />
+                    <Slide label="Native" />
+                    <Slide label="is Fun" right />
+                </ScrollView>
+            </View>
             <View style={styles.footer}>
-                <View
-                    style={{
-                        ...StyleSheet.absoluteFillObject,
-                        backgroundColor: "cyan",
-                    }}
-                />
+                <View style={{...StyleSheet.absoluteFillObject }}/>
                 <View style={styles.footerItem}></View>
             </View>
         </View>
